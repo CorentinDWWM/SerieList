@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const form = document.querySelector("form");
 const input = document.querySelector("#text");
 const ul = document.querySelector("ul");
@@ -15,6 +16,42 @@ const series = [
     edit: false,
   },
 ];
+
+const image = [
+  "the shield",
+  "the walking dead",
+  "better call saul",
+  "black mirror",
+  "breaking bad",
+  "broadchurch",
+  "bureau des legendes",
+  "game of thrones",
+  "homeland",
+  "lost",
+  "mad men",
+  "narcos",
+  "sex education",
+  "peaky blinders",
+  "rectify",
+  "sherlock",
+  "sons of anarchy",
+  "soprano",
+  "stranger things",
+  "the wire",
+  "vikings",
+];
+
+const divImg = document.createElement("div");
+divImg.classList.add("div-img");
+
+body.append(divImg);
+
+// const displayImage = () => {
+//   const imageNode = image.map((m, i) => {
+//     return createMediaElement(m);
+//   });
+//   divImg.append(...imageNode);
+// };
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -137,6 +174,10 @@ const modifSerie = (serie, index) => {
 const createSerie = (serie, index) => {
   const li = document.createElement("li");
 
+  li.addEventListener("mouseout", () => {
+    divImg.style.backgroundImage = `url("img/streaming.jpg")`;
+  });
+
   const span = document.createElement("span");
   span.classList.add("todo");
   span.classList.add("done");
@@ -153,6 +194,12 @@ const createSerie = (serie, index) => {
 
   const parag = document.createElement("p");
   parag.innerText = serie.name;
+
+  li.addEventListener("mouseover", () => {
+    divImg.style.backgroundImage = `url("img/${parag.innerText
+      .toLowerCase()
+      .trim()}.jpg")`;
+  });
 
   const btn = document.createElement("button");
   btn.innerText = "Editer";

@@ -130,3 +130,18 @@ li .done {
 .erreurEdit {
   width: 100%;
 }
+
+.div-img {
+  display: flex;
+  background-image: url(img/streaming.jpg);
+  background-position: center;
+  background-size: contain;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  background-repeat: no-repeat;
+  margin-left: 20px;
+}
+
+img {
+}
